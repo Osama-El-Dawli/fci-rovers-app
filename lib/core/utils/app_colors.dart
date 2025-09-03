@@ -13,19 +13,19 @@ abstract class AppColors {
   // =============================
   static const Color secondary = Color(0xFF5E450F); // البني الغامق
   static const Color accent = Color(0xFF86510C); // البني المتوسط
-  static const Color muted = Color(0xFF2E1A06); // البني الفاتح
+  static const Color muted = Color(0xFF1F160A); // البني الفاتح
 
   // =============================
   // Background & Text
   // =============================
   static const Color background = Color(0xFF040404); // الخلفية الرئيسية
   static const Color card = Color(0xFF090A0C); // خلفية الكروت
-  static const Color foreground = Color(0xFFF7F0D4); // النص الذهبي الكريمي
+  static const Color foreground = Color(0xFFFDEFC3); // النص الذهبي الكريمي
 
   // =============================
   // Interactive Elements
   // =============================
-  static const Color border = Color(0xFF4A3517); // لون الحدود
+  static const Color border = Color(0x33EFC139); // لون الحدود
   static const Color input = Color(0xFF3D2D12); // خلفية الإدخال
   static const Color ring = Color(0xFFE4B61E); // التركيز - نفس Primary
 
