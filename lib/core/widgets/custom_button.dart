@@ -8,11 +8,13 @@ class CustomButton extends StatefulWidget {
     this.scaleFactor = 1.1,
     this.duration = const Duration(milliseconds: 250),
     required this.onPressed,
+    this.title,
   });
 
   final VoidCallback onPressed;
   final double scaleFactor;
   final Duration duration;
+  final String? title;
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -88,7 +90,7 @@ class _CustomButtonState extends State<CustomButton> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'سجل الآن',
+                  widget.title ?? 'سجل الآن',
                   style: TextStyle(
                     fontSize: fontSize,
                     fontFamily: 'Cairo',

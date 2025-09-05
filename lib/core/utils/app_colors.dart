@@ -33,7 +33,7 @@ abstract class AppColors {
   // Utility Colors
   // =============================
   static const Color destructive = Color(0xFFEF4444); // الخطر - أحمر
-  static const Color mutedForeground = Color(0xFFA08660); // نص خافت
+  static const Color mutedForeground = Color(0xFFD6B85C); // نص خافت
   static const Color secondaryForeground = Color(0xFFF7F0D4); // نص على الثانوي
   static const Color accentForeground = Color(0xFFF7F0D4); // نص على Accent
 
