@@ -14,15 +14,15 @@ class CustomDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DotsIndicator(
+      animate: true,
       dotsCount: dotsCount,
       position: position,
       decorator: DotsDecorator(
         color: AppColors.border,
         activeColor: AppColors.primary,
         size: const Size(8, 8),
-        activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
+        activeSize: const Size(10, 10),
+        activeShape: OvalBorder(),
       ),
     );
   }

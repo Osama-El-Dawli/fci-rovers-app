@@ -12,6 +12,7 @@ class FciRoversApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('${MediaQuery.of(context).size.width}');
     return MaterialApp(
       title: 'FCI Rovers',
       debugShowCheckedModeBanner: false,

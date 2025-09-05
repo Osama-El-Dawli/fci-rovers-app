@@ -4,6 +4,7 @@ import 'package:fci_rovers_app/core/widgets/custom_tile_widget.dart';
 import 'package:fci_rovers_app/core/widgets/custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 
 class ImagesSection extends StatelessWidget {
   const ImagesSection({super.key});
@@ -23,34 +24,37 @@ class ImagesSection extends StatelessWidget {
           itemBuilder: (context, item, index) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: CachedNetworkImage(
-                imageUrl: item,
-                fit: BoxFit.cover,
-                placeholder: (context, url) => Shimmer.fromColors(
-                  baseColor: AppColors.card,
-                  highlightColor: AppColors.border.withValues(alpha: 0.5),
-                  child: Container(
+              child: WidgetZoom(
+                heroAnimationTag: 'gallery_image_$index',
+                zoomWidget: CachedNetworkImage(
+                  imageUrl: item,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => Shimmer.fromColors(
+                    baseColor: AppColors.card,
+                    highlightColor: AppColors.border.withValues(alpha: 0.5),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.card,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => Container(
                     decoration: BoxDecoration(
-                      color: AppColors.card,
+                      border: Border.all(color: AppColors.border),
                       borderRadius: BorderRadius.circular(16),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [AppColors.card, AppColors.muted],
+                      ),
                     ),
-                  ),
-                ),
-                errorWidget: (context, url, error) => Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.border),
-                    borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [AppColors.card, AppColors.muted],
-                    ),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.error,
-                      size: 65,
-                      color: AppColors.primary,
+                    child: Center(
+                      child: Icon(
+                        Icons.error,
+                        size: 65,
+                        color: AppColors.primary,
+                      ),
                     ),
                   ),
                 ),

@@ -30,7 +30,7 @@ class _CustomSliderState<T> extends State<CustomSlider> {
           children: [
             const Spacer(flex: 1),
             Expanded(
-              flex: 4,
+              flex: 6,
               child: Stack(
                 clipBehavior: Clip.none,
                 alignment: Alignment.center,

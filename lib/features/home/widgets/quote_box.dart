@@ -1,4 +1,5 @@
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
+import 'package:fci_rovers_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -55,13 +56,19 @@ class QuoteBox extends StatelessWidget {
                       horizontal: 64.0,
                       vertical: 70.0,
                     ),
-                    child: const Text(
-                      'كن مستعدا في كل وقت وحين',
-                      style: TextStyle(
-                        color: AppColors.foreground,
-                        fontFamily: 'Cairo',
-                        fontSize: 30,
-                      ),
+                    child: Column(
+                      children: [
+                        const Text(
+                          'كن مستعدا في كل وقت وحين',
+                          style: TextStyle(
+                            color: AppColors.foreground,
+                            fontFamily: 'Cairo',
+                            fontSize: 30,
+                          ),
+                        ),
+                        const SizedBox(height: 32),
+                        CustomButton(onPressed: () {}),
+                      ],
                     ),
                   ),
                 ),
