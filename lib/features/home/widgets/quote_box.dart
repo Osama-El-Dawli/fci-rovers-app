@@ -1,6 +1,7 @@
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'package:fci_rovers_app/core/widgets/custom_button.dart';
 import 'package:fci_rovers_app/core/widgets/custom_card.dart';
+import 'package:fci_rovers_app/features/register/views/register_view_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -103,7 +104,16 @@ class QuoteBox extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: buttonTopSpacing),
-                            CustomButton(onPressed: () {}),
+                            CustomButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => RegisterViewLayout(),
+                                  ),
+                                );
+                              },
+                            ),
                           ],
                         ),
                       ),

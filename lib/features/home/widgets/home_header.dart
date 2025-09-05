@@ -1,5 +1,5 @@
+import 'package:fci_rovers_app/core/widgets/custom_header.dart';
 import 'package:flutter/material.dart';
-import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'home_header_mobile.dart';
 import 'home_header_desktop.dart';
 
@@ -11,15 +11,7 @@ class HomeHeader extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isSmallScreen = screenWidth < 700;
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [AppColors.primary, AppColors.primaryGlow, AppColors.primary],
-          stops: const [0.0, 0.5, 1.0],
-        ),
-      ),
+    return CustomHeader(
       child: Padding(
         padding: EdgeInsets.symmetric(
           vertical: isSmallScreen ? 16.0 : 24.0,

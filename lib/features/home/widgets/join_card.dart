@@ -2,6 +2,7 @@ import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'package:fci_rovers_app/core/widgets/custom_button.dart';
 import 'package:fci_rovers_app/core/widgets/custom_card.dart';
 import 'package:fci_rovers_app/core/widgets/custom_title_widget.dart';
+import 'package:fci_rovers_app/features/register/views/register_view_layout.dart';
 import 'package:flutter/material.dart';
 
 class JoinCard extends StatelessWidget {
@@ -54,7 +55,18 @@ class JoinCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 32),
-                      Center(child: CustomButton(onPressed: () {})),
+                      Center(
+                        child: CustomButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterViewLayout(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),

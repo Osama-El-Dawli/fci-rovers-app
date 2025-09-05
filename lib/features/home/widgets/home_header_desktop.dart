@@ -1,3 +1,4 @@
+import 'package:fci_rovers_app/core/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'home_header_text.dart';
@@ -11,15 +12,7 @@ class HomeHeaderDesktop extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CircleAvatar(
-          backgroundColor: const Color(0xffffffff).withValues(alpha: .3),
-          radius: 36,
-          child: const CircleAvatar(
-            backgroundColor: Colors.transparent,
-            radius: 35,
-            backgroundImage: AssetImage('assets/images/logo.png'),
-          ),
-        ),
+        CustomLogo(),
         const SizedBox(width: 16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
