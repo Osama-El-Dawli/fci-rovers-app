@@ -4,10 +4,9 @@ class AdaptiveLayout extends StatelessWidget {
   const AdaptiveLayout({
     super.key,
     required this.mobileLayout,
-    required this.tabletLayout,
     required this.desktopLayout,
   });
-  final WidgetBuilder mobileLayout, tabletLayout, desktopLayout;
+  final WidgetBuilder mobileLayout, desktopLayout;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +14,6 @@ class AdaptiveLayout extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth < 850) {
           return mobileLayout(context);
-          // } else if (constraints.maxWidth < 600) {
-          //   return tabletLayout(context);
         } else {
           return desktopLayout(context);
         }
