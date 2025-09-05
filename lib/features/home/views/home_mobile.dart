@@ -25,14 +25,14 @@ class HomeMobile extends StatelessWidget {
           const SliverToBoxAdapter(child: CustomDivider()),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             sliver: const SliverToBoxAdapter(child: ImagesSection()),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
           const SliverToBoxAdapter(child: CustomDivider()),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             sliver: const SliverToBoxAdapter(child: VideosSection()),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
