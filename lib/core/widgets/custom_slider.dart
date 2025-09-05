@@ -54,20 +54,16 @@ class _CustomSliderState extends State<CustomSlider> {
                               constraints: BoxConstraints(
                                 maxHeight: constraints.maxHeight,
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0,
-                                ),
-                                child: widget.itemBuilder(context, item, index),
-                              ),
+                              child: widget.itemBuilder(context, item, index),
                             );
                           },
                           options: CarouselOptions(
                             aspectRatio: isMobile ? 16 / 9 : 16 / 6,
+                            padEnds: isMobile ? false : true,
                             autoPlay: true,
                             enableInfiniteScroll: true,
                             viewportFraction: isMobile ? 1 : 0.6,
-                            enlargeCenterPage: true,
+                            enlargeCenterPage: isMobile ? false : true,
                             onPageChanged: (index, reason) => setState(() {
                               _currentIndex = index;
                             }),
