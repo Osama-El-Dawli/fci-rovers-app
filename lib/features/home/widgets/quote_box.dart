@@ -1,5 +1,6 @@
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'package:fci_rovers_app/core/widgets/custom_button.dart';
+import 'package:fci_rovers_app/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,7 +13,6 @@ class QuoteBox extends StatelessWidget {
       builder: (context, constraints) {
         final maxWidth = constraints.maxWidth;
 
-        // تحديد الفئة
         final isMobile = maxWidth < 750;
         final isTablet = maxWidth >= 750 && maxWidth < 1200;
 
@@ -29,44 +29,34 @@ class QuoteBox extends StatelessWidget {
           quoteFontSize = 18;
           quoteLineHeight = 1.3;
           svgSize = 20;
-          buttonTopSpacing = 24;
+          buttonTopSpacing = 28;
         } else if (isTablet) {
           containerPaddingHorizontal = 40;
           containerPaddingVertical = 50;
           quoteFontSize = 24;
           quoteLineHeight = 1.4;
-          svgSize = 36;
-          buttonTopSpacing = 28;
+          svgSize = 30;
+          buttonTopSpacing = 32;
         } else {
           containerPaddingHorizontal = 60;
           containerPaddingVertical = 60;
           quoteFontSize = 28;
           quoteLineHeight = 1.5;
-          svgSize = 48;
-          buttonTopSpacing = 32;
+          svgSize = 40;
+          buttonTopSpacing = 34;
         }
 
         return Row(
           children: [
             if (!isMobile) const Spacer(flex: 1),
             Expanded(
-              flex: isMobile ? 1 : 3,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: AppColors.border),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [AppColors.card, AppColors.muted],
-                  ),
-                ),
+              flex: isMobile ? 1 : 8,
+              child: CustomCard(
                 child: Stack(
                   children: [
-                    // الـ SVG العلوي
                     Positioned(
-                      top: containerPaddingVertical / 2,
-                      right: containerPaddingHorizontal / 2,
+                      top: 10,
+                      right: 10,
                       child: SvgPicture.asset(
                         'assets/images/double_quotes.svg',
                         width: svgSize,
@@ -76,10 +66,9 @@ class QuoteBox extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // الـ SVG السفلي
                     Positioned(
-                      bottom: containerPaddingVertical / 2,
-                      left: containerPaddingHorizontal / 2,
+                      bottom: 10,
+                      left: 10,
                       child: Transform.rotate(
                         angle: 3.14,
                         child: SvgPicture.asset(
@@ -92,7 +81,6 @@ class QuoteBox extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // النص و الزر
                     Center(
                       child: Padding(
                         padding: EdgeInsets.symmetric(

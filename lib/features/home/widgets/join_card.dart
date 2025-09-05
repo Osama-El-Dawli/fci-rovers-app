@@ -1,0 +1,69 @@
+import 'package:fci_rovers_app/core/utils/app_colors.dart';
+import 'package:fci_rovers_app/core/widgets/custom_button.dart';
+import 'package:fci_rovers_app/core/widgets/custom_card.dart';
+import 'package:fci_rovers_app/core/widgets/custom_title_widget.dart';
+import 'package:flutter/material.dart';
+
+class JoinCard extends StatelessWidget {
+  const JoinCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final maxWidth = constraints.maxWidth;
+
+        final isMobile = maxWidth < 750;
+        final isTablet = maxWidth >= 750 && maxWidth < 1200;
+
+        double textFontSize;
+
+        if (isMobile) {
+          textFontSize = 14;
+        } else if (isTablet) {
+          textFontSize = 20;
+        } else {
+          textFontSize = 24;
+        }
+        return Row(
+          children: [
+            if (!isMobile) const Spacer(flex: 1),
+            Expanded(
+              flex: isMobile ? 1 : 8,
+              child: CustomCard(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24.0,
+                    vertical: 16.0,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 24),
+                      CustomTitleWidget(title: 'انضم إلى عائلة الكشافة'),
+                      const SizedBox(height: 24),
+                      Padding(
+                        padding: EdgeInsetsGeometry.symmetric(horizontal: 32),
+                        child: Text(
+                          'كن جزءاً من حركة عالمية تهدف إلى بناء الشخصية وخدمة المجتمع. سجل الآن واكتشف عالماً مليئاً بالمغامرات والصداقات الحقيقية',
+                          style: TextStyle(
+                            color: AppColors.secondary,
+                            fontSize: textFontSize,
+                            fontFamily: 'Cairo',
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      Center(child: CustomButton(onPressed: () {})),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            if (!isMobile) const Spacer(flex: 1),
+          ],
+        );
+      },
+    );
+  }
+}

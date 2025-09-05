@@ -11,7 +11,7 @@ abstract class AppColors {
   // =============================
   // Secondary Colors
   // =============================
-  static const Color secondary = Color(0xFF5E450F); // البني الغامق
+  static const Color secondary = Color(0xFFD6B85C); // البني الغامق
   static const Color accent = Color(0xFF86510C); // البني المتوسط
   static const Color muted = Color(0xFF1F160A); // البني الفاتح
 

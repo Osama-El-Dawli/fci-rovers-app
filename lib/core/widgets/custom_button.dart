@@ -54,7 +54,7 @@ class _CustomButtonState extends State<CustomButton> {
         duration: widget.duration,
         curve: Curves.easeOut,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: isMobile ? 0 : 4),
+          padding: EdgeInsets.symmetric(vertical: isMobile ? 2 : 4),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [AppColors.primary, AppColors.primaryGlow],
