@@ -23,6 +23,29 @@ class _CustomButtonState extends State<CustomButton> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    final isMobile = screenWidth < 750;
+    final isTablet = screenWidth >= 750 && screenWidth < 1200;
+
+    double horizontalPadding;
+    double fontSize;
+    double iconSize;
+
+    if (isMobile) {
+      horizontalPadding = 24;
+      fontSize = 16;
+      iconSize = 16;
+    } else if (isTablet) {
+      horizontalPadding = 28;
+      fontSize = 17;
+      iconSize = 17;
+    } else {
+      horizontalPadding = 32;
+      fontSize = 20;
+      iconSize = 20;
+    }
+
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -31,6 +54,7 @@ class _CustomButtonState extends State<CustomButton> {
         duration: widget.duration,
         curve: Curves.easeOut,
         child: Container(
+          padding: EdgeInsets.symmetric(vertical: isMobile ? 0 : 4),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [AppColors.primary, AppColors.primaryGlow],
@@ -42,7 +66,9 @@ class _CustomButtonState extends State<CustomButton> {
           ),
           child: TextButton(
             style: TextButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              overlayColor: Colors.transparent,
+              visualDensity: VisualDensity.compact,
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -54,17 +80,17 @@ class _CustomButtonState extends State<CustomButton> {
               children: [
                 SvgPicture.asset(
                   'assets/images/add_user.svg',
-                  width: 18,
+                  width: iconSize,
                   colorFilter: ColorFilter.mode(
                     AppColors.background,
                     BlendMode.srcIn,
                   ),
                 ),
                 const SizedBox(width: 8),
-                const Text(
+                Text(
                   'سجل الآن',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: fontSize,
                     fontFamily: 'Cairo',
                     fontWeight: FontWeight.w500,
                   ),

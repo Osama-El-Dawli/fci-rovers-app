@@ -8,76 +8,126 @@ class QuoteBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Spacer(flex: 1),
-        Expanded(
-          flex: 3,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.border),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [AppColors.card, AppColors.muted],
-              ),
-            ),
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 16,
-                  right: 16,
-                  child: SvgPicture.asset(
-                    'assets/images/double_quotes.svg',
-                    colorFilter: ColorFilter.mode(
-                      AppColors.primary.withValues(alpha: 0.7),
-                      BlendMode.srcIn,
-                    ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final maxWidth = constraints.maxWidth;
+
+        // تحديد الفئة
+        final isMobile = maxWidth < 750;
+        final isTablet = maxWidth >= 750 && maxWidth < 1200;
+
+        double containerPaddingHorizontal;
+        double containerPaddingVertical;
+        double quoteFontSize;
+        double quoteLineHeight;
+        double svgSize;
+        double buttonTopSpacing;
+
+        if (isMobile) {
+          containerPaddingHorizontal = 20;
+          containerPaddingVertical = 40;
+          quoteFontSize = 18;
+          quoteLineHeight = 1.3;
+          svgSize = 20;
+          buttonTopSpacing = 24;
+        } else if (isTablet) {
+          containerPaddingHorizontal = 40;
+          containerPaddingVertical = 50;
+          quoteFontSize = 24;
+          quoteLineHeight = 1.4;
+          svgSize = 36;
+          buttonTopSpacing = 28;
+        } else {
+          containerPaddingHorizontal = 60;
+          containerPaddingVertical = 60;
+          quoteFontSize = 28;
+          quoteLineHeight = 1.5;
+          svgSize = 48;
+          buttonTopSpacing = 32;
+        }
+
+        return Row(
+          children: [
+            if (!isMobile) const Spacer(flex: 1),
+            Expanded(
+              flex: isMobile ? 1 : 3,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.border),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [AppColors.card, AppColors.muted],
                   ),
                 ),
-                Positioned(
-                  bottom: 16,
-                  left: 16,
-                  child: Transform.rotate(
-                    angle: 3.14,
-                    child: SvgPicture.asset(
-                      'assets/images/double_quotes.svg',
-                      colorFilter: ColorFilter.mode(
-                        AppColors.primary.withValues(alpha: 0.7),
-                        BlendMode.srcIn,
+                child: Stack(
+                  children: [
+                    // الـ SVG العلوي
+                    Positioned(
+                      top: containerPaddingVertical / 2,
+                      right: containerPaddingHorizontal / 2,
+                      child: SvgPicture.asset(
+                        'assets/images/double_quotes.svg',
+                        width: svgSize,
+                        colorFilter: ColorFilter.mode(
+                          AppColors.primary.withValues(alpha: 0.7),
+                          BlendMode.srcIn,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 64.0,
-                      vertical: 70.0,
-                    ),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'كن مستعدا في كل وقت وحين',
-                          style: TextStyle(
-                            color: AppColors.foreground,
-                            fontFamily: 'Cairo',
-                            fontSize: 30,
+                    // الـ SVG السفلي
+                    Positioned(
+                      bottom: containerPaddingVertical / 2,
+                      left: containerPaddingHorizontal / 2,
+                      child: Transform.rotate(
+                        angle: 3.14,
+                        child: SvgPicture.asset(
+                          'assets/images/double_quotes.svg',
+                          width: svgSize,
+                          colorFilter: ColorFilter.mode(
+                            AppColors.primary.withValues(alpha: 0.7),
+                            BlendMode.srcIn,
                           ),
                         ),
-                        const SizedBox(height: 32),
-                        CustomButton(onPressed: () {}),
-                      ],
+                      ),
                     ),
-                  ),
+                    // النص و الزر
+                    Center(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: containerPaddingHorizontal,
+                          vertical: containerPaddingVertical,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'كن مستعدا في كل وقت وحين',
+                              textAlign: isMobile
+                                  ? TextAlign.center
+                                  : TextAlign.left,
+                              style: TextStyle(
+                                color: AppColors.foreground,
+                                fontFamily: 'Cairo',
+                                fontSize: quoteFontSize,
+                                height: quoteLineHeight,
+                              ),
+                            ),
+                            SizedBox(height: buttonTopSpacing),
+                            CustomButton(onPressed: () {}),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-        const Spacer(flex: 1),
-      ],
+            if (!isMobile) const Spacer(flex: 1),
+          ],
+        );
+      },
     );
   }
 }
