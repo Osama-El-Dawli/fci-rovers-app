@@ -18,97 +18,109 @@ class CustomSlider extends StatefulWidget {
   State<CustomSlider> createState() => _CustomSliderState();
 }
 
-class _CustomSliderState<T> extends State<CustomSlider> {
+class _CustomSliderState extends State<CustomSlider> {
   final CarouselSliderController _controller = CarouselSliderController();
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 800;
+
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
+          mainAxisAlignment: isMobile
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.start,
           children: [
-            const Spacer(flex: 1),
+            if (!isMobile) const Spacer(flex: 1),
             Expanded(
-              flex: 6,
-              child: Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.center,
-                children: [
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      return CarouselSlider.builder(
-                        carouselController: _controller,
-                        itemCount: widget.items.length,
-                        itemBuilder: (context, index, _) {
-                          final item = widget.items[index];
-                          return ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxHeight: constraints.maxHeight,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0,
+              flex: isMobile ? 1 : 6,
+              child: Center(
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.center,
+                  children: [
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        return CarouselSlider.builder(
+                          carouselController: _controller,
+                          itemCount: widget.items.length,
+                          itemBuilder: (context, index, _) {
+                            final item = widget.items[index];
+                            return ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxHeight: constraints.maxHeight,
                               ),
-                              child: widget.itemBuilder(context, item, index),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0,
+                                ),
+                                child: widget.itemBuilder(context, item, index),
+                              ),
+                            );
+                          },
+                          options: CarouselOptions(
+                            aspectRatio: isMobile ? 16 / 9 : 16 / 6,
+                            autoPlay: true,
+                            enableInfiniteScroll: true,
+                            viewportFraction: isMobile ? 1 : 0.6,
+                            enlargeCenterPage: true,
+                            onPageChanged: (index, reason) => setState(() {
+                              _currentIndex = index;
+                            }),
+                          ),
+                        );
+                      },
+                    ),
+                    if (!isMobile)
+                      Positioned.fill(
+                        right: -2,
+                        left: -2,
+                        child: IgnorePointer(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  AppColors.background.withValues(alpha: 0.9),
+                                  AppColors.background.withValues(alpha: 0.0),
+                                  AppColors.background.withValues(alpha: 0.0),
+                                  AppColors.background.withValues(alpha: 0.9),
+                                ],
+                                stops: const [0.0, 0.15, 0.85, 1.0],
+                              ),
                             ),
-                          );
-                        },
-                        options: CarouselOptions(
-                          aspectRatio: 16 / 6,
-                          autoPlay: true,
-                          enableInfiniteScroll: true,
-                          viewportFraction: 0.6,
-                          enlargeCenterPage: true,
-                          onPageChanged: (index, reason) => setState(() {
-                            _currentIndex = index;
-                          }),
-                        ),
-                      );
-                    },
-                  ),
-                  Positioned.fill(
-                    right: -2,
-                    left: -2,
-                    child: IgnorePointer(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              AppColors.background.withValues(alpha: 0.9),
-                              AppColors.background.withValues(alpha: 0.0),
-                              AppColors.background.withValues(alpha: 0.0),
-                              AppColors.background.withValues(alpha: 0.9),
-                            ],
-                            stops: const [0.0, 0.15, 0.85, 1.0],
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    left: -30,
-                    child: _arrowButton(
-                      icon: Icons.arrow_forward_ios,
-                      onTap: () => _controller.nextPage(),
-                    ),
-                  ),
-                  Positioned(
-                    right: -30,
-                    child: _arrowButton(
-                      icon: Icons.arrow_back_ios_new,
-                      onTap: () => _controller.previousPage(),
-                    ),
-                  ),
-                ],
+                    if (!isMobile) ...[
+                      Positioned(
+                        left: -30,
+                        child: _arrowButton(
+                          icon: Icons.arrow_forward_ios,
+                          onTap: () => _controller.nextPage(),
+                        ),
+                      ),
+                      Positioned(
+                        right: -30,
+                        child: _arrowButton(
+                          icon: Icons.arrow_back_ios_new,
+                          onTap: () => _controller.previousPage(),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
               ),
             ),
-            const Spacer(flex: 1),
+            if (!isMobile) const Spacer(flex: 1),
           ],
         ),
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         CustomDots(
           dotsCount: widget.items.length,
           position: (widget.items.length - 1 - _currentIndex).toDouble(),

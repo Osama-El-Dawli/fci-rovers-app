@@ -7,30 +7,50 @@ class CustomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    double barWidth;
+    double barHeight;
+    double iconSize;
+
+    if (screenWidth < 400) {
+      barWidth = 10;
+      barHeight = 3;
+      iconSize = 30;
+    } else if (screenWidth < 800) {
+      barWidth = 12;
+      barHeight = 4;
+      iconSize = 40;
+    } else {
+      barWidth = 15;
+      barHeight = 5;
+      iconSize = 60;
+    }
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 15,
-          height: 5,
+          width: barWidth,
+          height: barHeight,
           decoration: BoxDecoration(
             color: AppColors.primary,
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         SvgPicture.asset(
           'assets/images/knot.svg',
-          height: 60,
+          height: iconSize,
           colorFilter: ColorFilter.mode(AppColors.primaryGlow, BlendMode.srcIn),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Container(
-          width: 15,
-          height: 5,
+          width: barWidth,
+          height: barHeight,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
             color: AppColors.primary,
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
       ],

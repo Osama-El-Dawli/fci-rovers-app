@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fci_rovers_app/core/utils/app_colors.dart';
-import 'package:fci_rovers_app/core/widgets/custom_tile_widget.dart';
+import 'package:fci_rovers_app/core/widgets/custom_title_widget.dart';
 import 'package:fci_rovers_app/core/widgets/custom_slider.dart';
+import 'package:fci_rovers_app/features/home/widgets/error_card.dart';
+import 'package:fci_rovers_app/features/home/widgets/loading_card.dart'
+    show LoadingCard;
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:widget_zoom/widget_zoom.dart';
 
 class ImagesSection extends StatelessWidget {
@@ -11,10 +12,14 @@ class ImagesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 800;
+
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        CustomTileWidget(title: 'معرض الصور'),
-        SizedBox(height: 45),
+        const CustomTitleWidget(title: 'معرض الصور'),
+        SizedBox(height: isMobile ? 24 : 45),
         CustomSlider(
           items: [
             'https://static.vecteezy.com/system/resources/previews/005/741/500/non_2x/happy-girl-scouts-set-collection-free-vector.jpg',
@@ -23,38 +28,18 @@ class ImagesSection extends StatelessWidget {
           ],
           itemBuilder: (context, item, index) {
             return ClipRRect(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(16),
               child: WidgetZoom(
                 heroAnimationTag: 'gallery_image_$index',
-                zoomWidget: CachedNetworkImage(
-                  imageUrl: item,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => Shimmer.fromColors(
-                    baseColor: AppColors.card,
-                    highlightColor: AppColors.border.withValues(alpha: 0.5),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.card,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.border),
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [AppColors.card, AppColors.muted],
-                      ),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.error,
-                        size: 65,
-                        color: AppColors.primary,
-                      ),
+                zoomWidget: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: CachedNetworkImage(
+                      imageUrl: item,
+                      fit: BoxFit.contain,
+                      placeholder: (context, url) => LoadingCard(),
+                      errorWidget: (context, url, error) => ErrorCard(),
                     ),
                   ),
                 ),
