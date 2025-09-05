@@ -28,7 +28,7 @@ class HomeHeaderDesktop extends StatelessWidget {
               'عشيرة جوالة حاسبات ومعلومات',
               style: TextStyle(
                 color: AppColors.primaryForeground,
-                fontSize: 36,
+                fontSize: 40,
                 fontFamily: 'Cairo',
                 fontWeight: FontWeight.w700,
               ),
