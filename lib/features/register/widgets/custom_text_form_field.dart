@@ -8,15 +8,18 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.controller,
     this.keyboardType,
+    this.maxLines,
   });
   final String? hintText;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       keyboardType: keyboardType,
       controller: controller,
       validator: validator,
