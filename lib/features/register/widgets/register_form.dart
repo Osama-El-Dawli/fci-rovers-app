@@ -9,6 +9,7 @@ import 'package:fci_rovers_app/features/register/widgets/field_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -58,7 +59,14 @@ class _RegisterFormState extends State<RegisterForm> {
             context: context,
             barrierDismissible: false,
             useRootNavigator: true,
-            builder: (_) => const Center(child: CircularProgressIndicator()),
+            builder: (_) => Center(
+              child: RepaintBoundary(
+                child: LottieBuilder.asset(
+                  'assets/images/fire_loading.json',
+                  width: 200,
+                ),
+              ),
+            ),
           );
         } else if (state is RegisterSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
