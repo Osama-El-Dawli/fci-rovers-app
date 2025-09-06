@@ -1,6 +1,8 @@
-# fci_rovers_app
+<img width="960" height="960" alt="logo" src="https://github.com/user-attachments/assets/90ffedbe-d4b0-4530-92cc-66ee8a3cca39" />
 
-A new Flutter project.
+# FCI Rovers
+
+Come and Join Us ⚜️
 
 ## Getting Started
 
