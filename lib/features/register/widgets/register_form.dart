@@ -1,5 +1,6 @@
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'package:fci_rovers_app/core/widgets/custom_button.dart';
+import 'package:fci_rovers_app/core/widgets/custom_dialog.dart';
 import 'package:fci_rovers_app/features/register/cubit/register_cubit.dart';
 import 'package:fci_rovers_app/features/register/models/user_model.dart';
 import 'package:fci_rovers_app/features/register/widgets/custom_drop_down_field.dart';
@@ -62,40 +63,33 @@ class _RegisterFormState extends State<RegisterForm> {
         } else if (state is RegisterSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
           showDialog(
-            barrierDismissible: false,
-            useRootNavigator: true,
             context: context,
-            builder: (_) => AlertDialog(
-              title: const Text('تم التسجيل بنجاح'),
-              content: const Text('شكراً لتسجيلك في فريق FCI Rovers!'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context, rootNavigator: true).pop();
-                    _clearForm();
-                  },
-                  child: const Text('حسناً'),
-                ),
-              ],
+            useRootNavigator: true,
+            barrierDismissible: false,
+            builder: (_) => Center(
+              child: CustomDialog(
+                title: 'تم التسجيل بنجاح',
+                message: 'شكراً لتسجيلك في فريق FCI Rovers!',
+                onButtonPressed: () {
+                  Navigator.of(context, rootNavigator: true).pop();
+                  _clearForm();
+                },
+              ),
             ),
           );
         } else if (state is RegisterFailure) {
           Navigator.of(context, rootNavigator: true).pop();
           showDialog(
             context: context,
-            barrierDismissible: true,
+            barrierDismissible: false,
             useRootNavigator: true,
-            builder: (_) => AlertDialog(
-              title: const Text('حدث خطأ'),
-              content: Text(state.errorMessage),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context, rootNavigator: true).pop();
-                  },
-                  child: const Text('حسناً'),
-                ),
-              ],
+            builder: (_) => CustomDialog(
+              isSuccess: false,
+              title: 'حدث خطأ',
+              message: state.errorMessage,
+              onButtonPressed: () {
+                Navigator.of(context, rootNavigator: true).pop();
+              },
             ),
           );
         }

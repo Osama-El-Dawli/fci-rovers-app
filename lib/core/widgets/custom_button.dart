@@ -80,15 +80,17 @@ class _CustomButtonState extends State<CustomButton> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SvgPicture.asset(
-                  'assets/images/add_user.svg',
-                  width: iconSize,
-                  colorFilter: ColorFilter.mode(
-                    AppColors.background,
-                    BlendMode.srcIn,
+                if (widget.title == null) ...[
+                  SvgPicture.asset(
+                    'assets/images/add_user.svg',
+                    width: iconSize,
+                    colorFilter: ColorFilter.mode(
+                      AppColors.background,
+                      BlendMode.srcIn,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 8),
+                  const SizedBox(width: 8),
+                ],
                 Text(
                   widget.title ?? 'سجل الآن',
                   style: TextStyle(
