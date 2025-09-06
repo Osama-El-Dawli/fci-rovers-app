@@ -27,7 +27,7 @@ class VideosSection extends StatelessWidget {
             return ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: WidgetZoom(
-                heroAnimationTag: 'gallery_image_$index',
+                heroAnimationTag: 'gallery_video_$index',
                 zoomWidget: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ClipRRect(
