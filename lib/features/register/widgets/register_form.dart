@@ -23,6 +23,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String? selectedSex;
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
+  RegExp phoneRegExp = RegExp(r'^(01)[0-9]{9}$');
 
   @override
   void dispose() {
@@ -98,6 +99,10 @@ class _RegisterFormState extends State<RegisterForm> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'يجب ادخال رقم هاتفك';
+              } else if (!phoneRegExp.hasMatch(value)) {
+                return 'يجب ادخال رقم هاتف صحيح';
+              } else if (value.length != 11) {
+                return 'يجب ان يكون رقم الهاتف مكون من 11 رقم';
               }
               return null;
             },
@@ -112,6 +117,8 @@ class _RegisterFormState extends State<RegisterForm> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'يجب ادخال رقمك القومي';
+              } else if (value.length != 14) {
+                return 'يجب ان يكون الرقم القومي مكون من 14 رقم';
               }
               return null;
             },
@@ -134,6 +141,11 @@ class _RegisterFormState extends State<RegisterForm> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'يجب ادخال هذا الحقل';
+                        } else if (value != '1' &&
+                            value != '2' &&
+                            value != '3' &&
+                            value != '4') {
+                          return 'يجب ادخال فرقة صحيحة';
                         }
                         return null;
                       },
