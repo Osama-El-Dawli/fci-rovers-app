@@ -1,9 +1,13 @@
+import 'package:fci_rovers_app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'package:fci_rovers_app/features/home/views/home_view_layout.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const FciRoversApp());
 }
 
