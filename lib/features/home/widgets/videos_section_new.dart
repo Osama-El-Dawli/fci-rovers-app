@@ -13,17 +13,17 @@ class VideoThumbnail extends StatefulWidget {
   final int index;
 
   const VideoThumbnail({
-    Key? key,
+    super.key,
     required this.videoUrl,
     required this.thumbnailUrl,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
-  _VideoThumbnailState createState() => _VideoThumbnailState();
+  VideoThumbnailState createState() => VideoThumbnailState();
 }
 
-class _VideoThumbnailState extends State<VideoThumbnail> {
+class VideoThumbnailState extends State<VideoThumbnail> {
   bool _isHovering = false;
 
   @override
@@ -35,7 +35,8 @@ class _VideoThumbnailState extends State<VideoThumbnail> {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => VideoPlayerScreen(videoUrl: widget.videoUrl),
+              builder: (context) =>
+                  VideoPlayerScreen(videoUrl: widget.videoUrl),
             ),
           );
         },
@@ -81,13 +82,13 @@ class _VideoThumbnailState extends State<VideoThumbnail> {
 class VideoPlayerScreen extends StatefulWidget {
   final String videoUrl;
 
-  const VideoPlayerScreen({Key? key, required this.videoUrl}) : super(key: key);
+  const VideoPlayerScreen({super.key, required this.videoUrl});
 
   @override
-  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+  VideoPlayerScreenState createState() => VideoPlayerScreenState();
 }
 
-class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+class VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late VideoPlayerController _videoPlayerController;
   late Future<void> _initializeVideoPlayerFuture;
   late ChewieController _chewieController;
@@ -95,8 +96,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   void initState() {
     super.initState();
-    _videoPlayerController = VideoPlayerController.network(
-      widget.videoUrl,
+    _videoPlayerController = VideoPlayerController.networkUrl(
+      Uri.parse(widget.videoUrl),
     );
 
     _chewieController = ChewieController(
@@ -159,33 +160,39 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 }
 
 class VideosSection extends StatelessWidget {
-  static const List<Map<String, String>> videos = [
+  final List<Map<String, String>> videos = [
     {
-      'videoUrl': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      'thumbnailUrl': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg',
+      'videoUrl':
+          'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      'thumbnailUrl':
+          'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg',
     },
     {
-      'videoUrl': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-      'thumbnailUrl': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg',
+      'videoUrl':
+          'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+      'thumbnailUrl':
+          'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg',
     },
     {
-      'videoUrl': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      'thumbnailUrl': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg',
+      'videoUrl':
+          'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+      'thumbnailUrl':
+          'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg',
     },
   ];
 
-  const VideosSection({super.key});
+  VideosSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 800;
-    
+
     return Column(
       children: [
         const CustomTitleWidget(title: 'الفيديوهات'),
         SizedBox(height: isMobile ? 24 : 45),
-        CustomSlider<Map<String, String>>(
+        CustomSlider(
           items: videos,
           itemBuilder: (context, item, index) {
             return VideoThumbnail(

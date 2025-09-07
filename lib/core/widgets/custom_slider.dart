@@ -3,22 +3,21 @@ import 'package:fci_rovers_app/core/widgets/custom_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 
-class CustomSlider extends StatefulWidget {
+class CustomSlider<T> extends StatefulWidget {
   const CustomSlider({
     super.key,
     required this.items,
     required this.itemBuilder,
   });
 
-  final List<String> items;
-  final Widget Function(BuildContext context, String item, int index)
-  itemBuilder;
+  final List<T> items;
+  final Widget Function(BuildContext context, T item, int index) itemBuilder;
 
   @override
-  State<CustomSlider> createState() => _CustomSliderState();
+  State<CustomSlider<T>> createState() => _CustomSliderState<T>();
 }
 
-class _CustomSliderState extends State<CustomSlider> {
+class _CustomSliderState<T> extends State<CustomSlider<T>> {
   final CarouselSliderController _controller = CarouselSliderController();
   int _currentIndex = 0;
 
