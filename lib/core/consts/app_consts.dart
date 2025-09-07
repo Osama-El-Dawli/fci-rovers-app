@@ -13,4 +13,25 @@ abstract class AppConsts {
     'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/images/11.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvMTEuanBnIiwiaWF0IjoxNzU3MTkyMzAxLCJleHAiOjE3ODg3MjgzMDF9.gYpjp8nZ3s5NsRdbrJfWfQaW8h28SG9naZXreaO4tKw',
     'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/images/12.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvMTIuanBnIiwiaWF0IjoxNzU3MTkyMzE4LCJleHAiOjE3ODg3MjgzMTh9.qcwrwy1uLBPD-27QVcCoE635Gy9ZBk4Wn2YWflh0r6U',
   ];
+
+  static const List<Map<String, String>> videos = [
+    {
+      'videoUrl':
+          'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/videos/1.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlb3MvMS5tcDQiLCJpYXQiOjE3NTcyNDk2NzMsImV4cCI6MTc4ODc4NTY3M30.--OwI4fBzvft7HDufCdbt-8FYX4EQZJyLMHVU5NId_M',
+      'thumbnailUrl':
+          'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/videos/v_1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlb3Mvdl8xLnBuZyIsImlhdCI6MTc1NzI1NDAyMCwiZXhwIjoxNzg4NzkwMDIwfQ.kuMbELUo8TTeY-bCqXAoWtENRr0HKNLMcpEMPQSWzzg',
+    },
+    {
+      'videoUrl':
+          'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/videos/3.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlb3MvMy5tcDQiLCJpYXQiOjE3NTcyNDQwMzQsImV4cCI6MTc4ODc4MDAzNH0.HSobfvDCfa719jElt_rlnMkTNsk14rA4Gn1Mnn-2dno',
+      'thumbnailUrl':
+          'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/videos/v_3.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlb3Mvdl8zLnBuZyIsImlhdCI6MTc1NzI1NDExMywiZXhwIjoxNzg4NzkwMTEzfQ.FhFgbZtdAgiMvinO4QO0SSRLWS-AdXKYIuhrFnK4wxs',
+    },
+    {
+      'videoUrl':
+          'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/videos/2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlb3MvMi5tcDQiLCJpYXQiOjE3NTcyNDk3OTQsImV4cCI6MTc4ODc4NTc5NH0.k2qhwtqa1eE_QUwg5ven0mCkzjncJwMAMMwa5bIGlYs',
+      'thumbnailUrl':
+          'https://bvzdxbywiiywfaaeitvf.supabase.co/storage/v1/object/sign/videos/v_2.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zZDQ1MGU4Yy1kNTM3LTQ3NjQtYWRhYy00NTI3NTI5ZWZjMzciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlb3Mvdl8yLnBuZyIsImlhdCI6MTc1NzI1NDA3MSwiZXhwIjoxNzg4NzkwMDcxfQ.Rxn3Kc7RDOSpQ7csqzDpKdVfsyZ7miPtcKHTPYFry9o',
+    },
+  ];
 }
