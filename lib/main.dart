@@ -8,8 +8,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Supabase.initialize(
-    url: const String.fromEnvironment('SUPABASE_URL'),
-    anonKey: const String.fromEnvironment('SUPABASE_ANON_KEY'),
+    url: 'https://bvzdxbywiiywfaaeitvf.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2emR4Ynl3aWl5d2ZhYWVpdHZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxNjA3NDEsImV4cCI6MjA3MjczNjc0MX0.JJGRxm7rSiOFbMU_0pIKhTE8ys34y2YlGkMIrgXG0Co',
   );
 
   runApp(const FciRoversApp());
@@ -21,10 +22,7 @@ class FciRoversApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: const String.fromEnvironment(
-        'APP_NAME',
-        defaultValue: 'FCI Rovers App',
-      ),
+      title: 'FCI Rovers App',
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
       theme: ThemeData(
