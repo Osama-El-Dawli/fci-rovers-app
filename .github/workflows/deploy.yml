@@ -3,7 +3,7 @@ name: Deploy Flutter Web to GitHub Pages
 on:
   push:
     branches:
-      - deploy #deploy branch
+      - deploy
 
 jobs:
   build:
@@ -21,7 +21,13 @@ jobs:
         run: flutter pub get
 
       - name: Build web
-        run: flutter build web --release --base-href /fci-rover-app/
+        run: |
+          flutter build web \
+            --release \
+            --base-href /fci-rover-app/ \
+            --dart-define=SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
+            --dart-define=SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \
+            --dart-define=APP_NAME="FCI Rovers App"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
