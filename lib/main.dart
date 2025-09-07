@@ -4,13 +4,14 @@ import 'package:fci_rovers_app/features/home/views/home_view_layout.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Supabase.initialize(
-    url: 'https://bvzdxbywiiywfaaeitvf.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2emR4Ynl3aWl5d2ZhYWVpdHZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxNjA3NDEsImV4cCI6MjA3MjczNjc0MX0.JJGRxm7rSiOFbMU_0pIKhTE8ys34y2YlGkMIrgXG0Co',
+    url: const String.fromEnvironment('SUPABASE_URL'),
+    anonKey: const String.fromEnvironment('SUPABASE_ANON_KEY'),
   );
+
   runApp(const FciRoversApp());
 }
 
@@ -19,9 +20,11 @@ class FciRoversApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('${MediaQuery.of(context).size.width}');
     return MaterialApp(
-      title: 'FCI Rovers',
+      title: const String.fromEnvironment(
+        'APP_NAME',
+        defaultValue: 'FCI Rovers App',
+      ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
       theme: ThemeData(
