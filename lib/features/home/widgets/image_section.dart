@@ -34,7 +34,7 @@ class ImagesSection extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     child: CachedNetworkImage(
                       imageUrl: item,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                       placeholder: (context, url) => LoadingCard(),
                       errorWidget: (context, url, error) => ErrorCard(),
                     ),
