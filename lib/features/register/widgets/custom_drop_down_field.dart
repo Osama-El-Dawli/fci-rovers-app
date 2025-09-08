@@ -27,24 +27,12 @@ class CustomDropdownField extends StatelessWidget {
         isExpanded: true,
         hint: Text(
           hintText,
-          style: TextStyle(
-            fontFamily: 'Cairo',
-            color: AppColors.mutedForeground,
-            fontSize: 14,
-          ),
+          style: TextStyle(color: AppColors.mutedForeground, fontSize: 14),
         ),
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: 'Cairo',
-          color: AppColors.foreground,
-        ),
+        style: TextStyle(fontSize: 16, color: AppColors.foreground),
         icon: Icon(Icons.keyboard_arrow_down, color: AppColors.mutedForeground),
         decoration: InputDecoration(
-          hintStyle: TextStyle(
-            fontFamily: 'Cairo',
-            color: AppColors.mutedForeground,
-            fontSize: 14,
-          ),
+          hintStyle: TextStyle(color: AppColors.mutedForeground, fontSize: 14),
           fillColor: AppColors.muted,
           filled: true,
           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -60,7 +48,6 @@ class CustomDropdownField extends StatelessWidget {
             child: Text(
               item['label']!,
               style: TextStyle(
-                fontFamily: 'Cairo',
                 color: AppColors.foreground,
                 fontSize: 16,
                 height: 1.2,

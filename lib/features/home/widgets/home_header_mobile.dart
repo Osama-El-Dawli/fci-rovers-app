@@ -30,7 +30,7 @@ class HomeHeaderMobile extends StatelessWidget {
             style: TextStyle(
               color: AppColors.primaryForeground,
               fontSize: isNarrow ? 20 : 24,
-              fontFamily: 'Cairo',
+
               fontWeight: FontWeight.w700,
             ),
           ),

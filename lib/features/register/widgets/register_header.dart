@@ -51,7 +51,7 @@ class RegisterHeader extends StatelessWidget {
                     style: TextStyle(
                       color: AppColors.background,
                       fontSize: 14,
-                      fontFamily: 'Cairo',
+
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -73,7 +73,7 @@ class RegisterHeader extends StatelessWidget {
                   style: TextStyle(
                     color: AppColors.background,
                     fontSize: 20,
-                    fontFamily: 'Cairo',
+
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -107,7 +107,7 @@ class RegisterHeader extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.background,
                   fontSize: isTablet ? 15 : 16,
-                  fontFamily: 'Cairo',
+
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -124,7 +124,7 @@ class RegisterHeader extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.background,
                   fontSize: isTablet ? 22 : 24,
-                  fontFamily: 'Cairo',
+
                   fontWeight: FontWeight.w700,
                 ),
               ),

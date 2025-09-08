@@ -95,7 +95,7 @@ class _CustomButtonState extends State<CustomButton> {
                   widget.title ?? 'سجل الآن',
                   style: TextStyle(
                     fontSize: fontSize,
-                    fontFamily: 'Cairo',
+
                     fontWeight: FontWeight.w500,
                   ),
                 ),

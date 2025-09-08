@@ -50,7 +50,6 @@ class JoinCard extends StatelessWidget {
                           style: TextStyle(
                             color: AppColors.secondary,
                             fontSize: textFontSize,
-                            fontFamily: 'Cairo',
                           ),
                         ),
                       ),

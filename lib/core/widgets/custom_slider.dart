@@ -118,7 +118,7 @@ class _CustomSliderState<T> extends State<CustomSlider<T>> {
         const SizedBox(height: 24),
         CustomDots(
           dotsCount: widget.items.length,
-          position: (widget.items.length - 1 - _currentIndex).toDouble(),
+          position: _currentIndex.toDouble(),
         ),
       ],
     );

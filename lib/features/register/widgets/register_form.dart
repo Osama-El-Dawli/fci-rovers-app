@@ -125,7 +125,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
-                    fontFamily: 'Cairo',
+
                     color: AppColors.foreground,
                   ),
                 ),

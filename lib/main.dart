@@ -10,7 +10,7 @@ Future<void> main() async {
 
   await Supabase.initialize(
     url: AppConfig.supabaseUrl,
-    anonKey: AppConfig.supabaseKey
+    anonKey: AppConfig.supabaseKey,
   );
 
   runApp(const FciRoversApp());
@@ -24,9 +24,10 @@ class FciRoversApp extends StatelessWidget {
     return MaterialApp(
       title: 'FCI Rovers App',
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark().copyWith(
+        textTheme: ThemeData.dark().textTheme.apply(fontFamily: 'Cairo'),
+      ),
       theme: ThemeData(
-        fontFamily: 'Cairo',
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
       ),
       locale: const Locale('ar'),

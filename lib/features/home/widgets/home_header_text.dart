@@ -5,11 +5,7 @@ class HomeHeaderText extends StatelessWidget {
   final String text;
   final bool isItalic;
 
-  const HomeHeaderText({
-    super.key,
-    required this.text,
-    this.isItalic = false,
-  });
+  const HomeHeaderText({super.key, required this.text, this.isItalic = false});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +19,11 @@ class HomeHeaderText extends StatelessWidget {
       ),
       child: Text(
         text,
-        textAlign:TextAlign.center,
+        textAlign: TextAlign.center,
         style: TextStyle(
           color: AppColors.primaryForeground,
           fontSize: isNarrow ? 14 : 16,
-          fontFamily: 'Cairo',
+
           fontWeight: FontWeight.w400,
           fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
         ),

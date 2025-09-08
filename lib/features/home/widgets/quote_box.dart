@@ -98,7 +98,7 @@ class QuoteBox extends StatelessWidget {
                                   : TextAlign.left,
                               style: TextStyle(
                                 color: AppColors.foreground,
-                                fontFamily: 'Cairo',
+
                                 fontSize: quoteFontSize,
                                 height: quoteLineHeight,
                               ),

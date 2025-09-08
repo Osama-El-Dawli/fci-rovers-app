@@ -22,7 +22,7 @@ class HomeHeaderDesktop extends StatelessWidget {
               style: TextStyle(
                 color: AppColors.primaryForeground,
                 fontSize: 40,
-                fontFamily: 'Cairo',
+
                 fontWeight: FontWeight.w700,
               ),
             ),

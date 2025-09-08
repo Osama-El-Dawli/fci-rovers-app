@@ -17,11 +17,7 @@ class Footer extends StatelessWidget {
       alignment: Alignment.center,
       child: const Text(
         'جميع الحقوق محفوظة © 2025',
-        style: TextStyle(
-          fontSize: 16,
-          color: AppColors.secondary,
-          fontFamily: 'Cairo',
-        ),
+        style: TextStyle(fontSize: 16, color: AppColors.secondary),
       ),
     );
   }

@@ -24,7 +24,7 @@ class CustomTitleWidget extends StatelessWidget {
       style: TextStyle(
         color: AppColors.foreground,
         fontSize: fontSize,
-        fontFamily: 'Cairo',
+
         fontWeight: FontWeight.w700,
       ),
     );

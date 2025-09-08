@@ -12,7 +12,7 @@ class FieldTitle extends StatelessWidget {
       style: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w500,
-        fontFamily: 'Cairo',
+
         color: AppColors.foreground,
       ),
     );

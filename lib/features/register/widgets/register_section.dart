@@ -33,7 +33,7 @@ class RegisterSection extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24, // Smaller for mobile
                   color: AppColors.primary,
-                  fontFamily: 'Cairo',
+
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -42,7 +42,7 @@ class RegisterSection extends StatelessWidget {
                 'املأ البيانات التالية للتسجيل في الحركة الكشفية',
                 style: TextStyle(
                   fontSize: 16, // Smaller for mobile
-                  fontFamily: 'Cairo',
+
                   color: AppColors.mutedForeground,
                 ),
               ),
@@ -72,7 +72,7 @@ class RegisterSection extends StatelessWidget {
                     style: TextStyle(
                       fontSize: isTablet ? 26 : 30,
                       color: AppColors.primary,
-                      fontFamily: 'Cairo',
+
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -81,7 +81,7 @@ class RegisterSection extends StatelessWidget {
                     'املأ البيانات التالية للتسجيل في الحركة الكشفية',
                     style: TextStyle(
                       fontSize: isTablet ? 16 : 18,
-                      fontFamily: 'Cairo',
+
                       color: AppColors.mutedForeground,
                     ),
                   ),

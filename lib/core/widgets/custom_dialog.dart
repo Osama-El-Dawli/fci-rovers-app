@@ -57,7 +57,6 @@ class CustomDialog extends StatelessWidget {
                       fontSize: titleFontSize,
                       fontWeight: FontWeight.bold,
                       color: AppColors.mutedForeground,
-                      fontFamily: 'Cairo',
                     ),
                     textAlign: TextAlign.center,
                     maxLines: 2,
@@ -70,7 +69,6 @@ class CustomDialog extends StatelessWidget {
                       style: TextStyle(
                         fontSize: messageFontSize,
                         color: AppColors.foreground,
-                        fontFamily: 'Cairo',
                       ),
                       textAlign: TextAlign.center,
                     ),
