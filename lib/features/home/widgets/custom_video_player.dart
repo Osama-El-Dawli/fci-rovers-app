@@ -25,27 +25,30 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
       Uri.parse(widget.videoUrl),
     );
 
-    _chewieController = ChewieController(
-      materialProgressColors: ChewieProgressColors(
-        playedColor: AppColors.primaryGlow,
-        backgroundColor: AppColors.foreground.withValues(alpha: 0.3),
-        handleColor: AppColors.mutedForeground,
-      ),
-      videoPlayerController: _videoPlayerController,
-      aspectRatio: 16 / 9,
-      autoPlay: false,
-      looping: false,
-      allowFullScreen: true,
-      allowMuting: true,
-      showControlsOnInitialize: false,
-      errorBuilder: (context, errorMessage) {
-        return Center(
-          child: Icon(Icons.error, color: AppColors.primary, size: 50),
-        );
-      },
-    );
-
-    _initializeVideoPlayerFuture = _videoPlayerController.initialize();
+    _initializeVideoPlayerFuture = _videoPlayerController.initialize().then((
+      _,
+    ) {
+      _chewieController = ChewieController(
+        videoPlayerController: _videoPlayerController,
+        autoPlay: true,
+        looping: false,
+        aspectRatio: 16 / 9,
+        allowFullScreen: true,
+        allowMuting: true,
+        showControlsOnInitialize: false,
+        materialProgressColors: ChewieProgressColors(
+          playedColor: AppColors.primaryGlow,
+          backgroundColor: AppColors.foreground.withValues(alpha: 0.3),
+          handleColor: AppColors.mutedForeground,
+        ),
+        errorBuilder: (context, errorMessage) {
+          return Center(
+            child: Icon(Icons.error, color: AppColors.primary, size: 50),
+          );
+        },
+      );
+      setState(() {});
+    });
   }
 
   @override
