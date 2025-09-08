@@ -5,7 +5,7 @@ part 'user_model.g.dart';
 class UserModel {
   final String name;
   final num id;
-  final num phone;
+  final String phone;
   final int grade;
   final String sex;
   final String? hobbies;

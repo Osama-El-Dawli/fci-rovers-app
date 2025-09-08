@@ -264,7 +264,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     final user = UserModel(
                       hobbies: hobbiesController.text.trim(),
                       name: nameController.text.trim(),
-                      phone: num.parse(phoneController.text.trim()),
+                      phone: phoneController.text.trim(),
                       id: num.parse(idController.text.trim()),
                       grade: int.parse(gradeController.text.trim()),
                       sex: selectedSex!,
