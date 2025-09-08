@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
     <base href="/fci-rovers-app/" />
 
     <meta charset="UTF-8" />
@@ -26,7 +13,7 @@
     />
     <meta
       property="og:image"
-      content="https://osama-el-dawli.github.io/fci-rover-app/preview.png"
+      content="https://osama-el-dawli.github.io/fci-rovers-app/preview.png"
     />
     <meta property="og:type" content="website" />
 
@@ -41,8 +28,52 @@
 
     <title>FCI Rovers</title>
     <link rel="manifest" href="manifest.json" />
+
+    <!-- Lottie player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #040404; /* نفس لون الـ App background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #loading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 18px;
+      }
+    </style>
   </head>
   <body>
+    <!-- Splash screen with Lottie -->
+    <div id="loading">
+      <lottie-player
+        src="assets/images/splash.json"
+        background="transparent"
+        speed="1"
+        style="width: 400px; height: 400px"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+
+    <!-- Flutter entrypoint -->
     <script src="flutter_bootstrap.js" async></script>
+    <script>
+      window.addEventListener("flutter-first-frame", function () {
+        document.getElementById("loading").style.display = "none";
+      });
+    </script>
   </body>
 </html>
