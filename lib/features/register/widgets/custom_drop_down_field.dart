@@ -21,18 +21,26 @@ class CustomDropdownField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: DropdownButtonFormField<String>(
-        initialValue: value, // Changed from initialValue
+        initialValue: value,
         validator: validator,
         onChanged: onChanged,
         isExpanded: true,
         hint: Text(
           hintText,
-          style: TextStyle(color: AppColors.mutedForeground, fontSize: 14),
+          style: TextStyle(
+            fontFamily: 'Cairo',
+            color: AppColors.mutedForeground,
+            fontSize: 14,
+          ),
         ),
         style: TextStyle(fontSize: 16, color: AppColors.foreground),
         icon: Icon(Icons.keyboard_arrow_down, color: AppColors.mutedForeground),
         decoration: InputDecoration(
-          hintStyle: TextStyle(color: AppColors.mutedForeground, fontSize: 14),
+          hintStyle: TextStyle(
+            fontFamily: 'Cairo',
+            color: AppColors.mutedForeground,
+            fontSize: 14,
+          ),
           fillColor: AppColors.muted,
           filled: true,
           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -48,6 +56,7 @@ class CustomDropdownField extends StatelessWidget {
             child: Text(
               item['label']!,
               style: TextStyle(
+                fontFamily: 'Cairo',
                 color: AppColors.foreground,
                 fontSize: 16,
                 height: 1.2,
