@@ -33,7 +33,7 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
       ),
       videoPlayerController: _videoPlayerController,
       aspectRatio: 16 / 9,
-      autoPlay: true,
+      autoPlay: false,
       looping: false,
       allowFullScreen: true,
       allowMuting: true,
