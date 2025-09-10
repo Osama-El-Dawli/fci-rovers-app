@@ -67,7 +67,10 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
           if (snapshot.connectionState == ConnectionState.done) {
             return AspectRatio(
               aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: Chewie(controller: _chewieController),
+              child: Directionality(
+                textDirection: TextDirection.ltr,
+                child: Chewie(controller: _chewieController),
+              ),
             );
           } else {
             return Center(
