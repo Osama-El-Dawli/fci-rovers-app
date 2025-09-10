@@ -114,13 +114,13 @@ class _RegisterFormState extends State<RegisterForm> {
                 SvgPicture.asset(
                   'assets/images/add_user.svg',
                   width: 24,
-                  colorFilter: ColorFilter.mode(
+                  colorFilter: const ColorFilter.mode(
                     AppColors.mutedForeground,
                     BlendMode.srcIn,
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text(
+                const Text(
                   'البيانات الشخصية',
                   style: TextStyle(
                     fontSize: 24,
@@ -134,7 +134,7 @@ class _RegisterFormState extends State<RegisterForm> {
             const SizedBox(height: 24),
 
             // Form Fields
-            FieldTitle('الاسم بالكامل *'),
+            const FieldTitle('الاسم بالكامل *'),
             const SizedBox(height: 8),
             CustomTextFormField(
               hintText: 'أدخل اسمك بالكامل',
@@ -148,7 +148,7 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
             const SizedBox(height: 20),
 
-            FieldTitle('رقم الهاتف (WhatsApp) *'),
+            const FieldTitle('رقم الهاتف (WhatsApp) *'),
             const SizedBox(height: 8),
             CustomTextFormField(
               keyboardType: TextInputType.phone,
@@ -167,7 +167,7 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
             const SizedBox(height: 20),
 
-            FieldTitle('الرقم القومي *'),
+            const FieldTitle('الرقم القومي *'),
             const SizedBox(height: 8),
             CustomTextFormField(
               keyboardType: TextInputType.number,
@@ -183,7 +183,7 @@ class _RegisterFormState extends State<RegisterForm> {
               },
             ),
             const SizedBox(height: 20),
-            FieldTitle('المواهب - الهوايات'),
+            const FieldTitle('المواهب - الهوايات'),
             const SizedBox(height: 8),
             CustomTextFormField(
               maxLines: 3,
@@ -201,7 +201,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      FieldTitle('الفرقة *'),
+                      const FieldTitle('الفرقة *'),
                       const SizedBox(height: 8),
                       CustomTextFormField(
                         keyboardType: TextInputType.number,
@@ -224,7 +224,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      FieldTitle('الجنس *'),
+                      const FieldTitle('الجنس *'),
                       const SizedBox(height: 8),
                       CustomDropdownField(
                         hintText: 'الجنس',

@@ -8,9 +8,9 @@ class RegisterDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.background,
-      body: const CustomScrollView(
+      body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: RegisterHeader()),
           SliverToBoxAdapter(child: SizedBox(height: 32)),

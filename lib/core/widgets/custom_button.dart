@@ -58,7 +58,7 @@ class _CustomButtonState extends State<CustomButton> {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: isMobile ? 2 : 4),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [AppColors.primary, AppColors.primaryGlow],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -84,7 +84,7 @@ class _CustomButtonState extends State<CustomButton> {
                   SvgPicture.asset(
                     'assets/images/add_user.svg',
                     width: iconSize,
-                    colorFilter: ColorFilter.mode(
+                    colorFilter: const ColorFilter.mode(
                       AppColors.background,
                       BlendMode.srcIn,
                     ),

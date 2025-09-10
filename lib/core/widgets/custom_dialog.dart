@@ -86,7 +86,7 @@ class CustomDialog extends StatelessWidget {
             top: iconTopOffset,
             child: Container(
               padding: EdgeInsets.all(isSmallScreen ? 6 : 8),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
                   colors: [

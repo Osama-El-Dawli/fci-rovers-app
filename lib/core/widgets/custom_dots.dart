@@ -17,11 +17,11 @@ class CustomDots extends StatelessWidget {
       animate: true,
       dotsCount: dotsCount,
       position: position,
-      decorator: DotsDecorator(
+      decorator: const DotsDecorator(
         color: AppColors.border,
         activeColor: AppColors.primary,
-        size: const Size(8, 8),
-        activeSize: const Size(10, 10),
+        size: Size(8, 8),
+        activeSize: Size(10, 10),
         activeShape: OvalBorder(),
       ),
     );

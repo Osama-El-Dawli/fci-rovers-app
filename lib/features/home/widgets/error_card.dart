@@ -10,13 +10,13 @@ class ErrorCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.border),
         borderRadius: BorderRadius.circular(16),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [AppColors.card, AppColors.muted],
         ),
       ),
-      child: Center(
+      child: const Center(
         child: Icon(Icons.error, size: 65, color: AppColors.primary),
       ),
     );

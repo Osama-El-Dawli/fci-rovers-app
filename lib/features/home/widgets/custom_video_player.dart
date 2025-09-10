@@ -29,7 +29,7 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
       _,
     ) {
       _chewieController = ChewieController(
-        customControls: Directionality(
+        customControls: const Directionality(
           textDirection: TextDirection.ltr,
           child: MaterialControls(),
         ),
@@ -46,7 +46,7 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
           handleColor: AppColors.mutedForeground,
         ),
         errorBuilder: (context, errorMessage) {
-          return Center(
+          return const Center(
             child: Icon(Icons.error, color: AppColors.primary, size: 50),
           );
         },

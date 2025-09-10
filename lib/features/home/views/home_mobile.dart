@@ -13,36 +13,36 @@ class HomeMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(child: HomeHeader()),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverToBoxAdapter(child: HomeHeader()),
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            sliver: const SliverToBoxAdapter(child: QuoteBox()),
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            sliver: SliverToBoxAdapter(child: QuoteBox()),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-          const SliverToBoxAdapter(child: CustomDivider()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          const SliverToBoxAdapter(child: ImagesSection()),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-          const SliverToBoxAdapter(child: CustomDivider()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverToBoxAdapter(child: CustomDivider()),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(child: ImagesSection()),
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverToBoxAdapter(child: CustomDivider()),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            sliver: const SliverToBoxAdapter(child: VideosSection()),
+            padding: EdgeInsets.symmetric(horizontal: 12.0),
+            sliver: SliverToBoxAdapter(child: VideosSection()),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-          const SliverToBoxAdapter(child: CustomDivider()),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverToBoxAdapter(child: CustomDivider()),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverPadding(
             padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
-            sliver: const SliverToBoxAdapter(child: JoinCard()),
+            sliver: SliverToBoxAdapter(child: JoinCard()),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-          const SliverToBoxAdapter(child: Footer()),
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverToBoxAdapter(child: Footer()),
         ],
       ),
     );

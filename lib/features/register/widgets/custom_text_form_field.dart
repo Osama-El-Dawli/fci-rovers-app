@@ -23,11 +23,14 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       controller: controller,
       validator: validator,
-      style: TextStyle(fontSize: 16, color: AppColors.foreground),
+      style: const TextStyle(fontSize: 16, color: AppColors.foreground),
       cursorColor: AppColors.foreground,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: AppColors.mutedForeground, fontSize: 14),
+        hintStyle: const TextStyle(
+          color: AppColors.mutedForeground,
+          fontSize: 14,
+        ),
         fillColor: AppColors.muted,
         filled: true,
         border: _buildBorder(),

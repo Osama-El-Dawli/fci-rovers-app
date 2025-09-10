@@ -41,10 +41,12 @@ class JoinCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 24),
-                      CustomTitleWidget(title: 'انضم إلى عائلة الكشافة'),
+                      const CustomTitleWidget(title: 'انضم إلى عائلة الكشافة'),
                       const SizedBox(height: 24),
                       Padding(
-                        padding: EdgeInsetsGeometry.symmetric(horizontal: 32),
+                        padding: const EdgeInsetsGeometry.symmetric(
+                          horizontal: 32,
+                        ),
                         child: Text(
                           'كن جزءاً من حركة عالمية تهدف إلى بناء الشخصية وخدمة المجتمع. سجل الآن واكتشف عالماً مليئاً بالمغامرات والصداقات الحقيقية',
                           style: TextStyle(
@@ -60,7 +62,8 @@ class JoinCard extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => RegisterViewLayout(),
+                                builder: (context) =>
+                                    const RegisterViewLayout(),
                               ),
                             );
                           },

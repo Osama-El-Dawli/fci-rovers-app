@@ -41,9 +41,7 @@ class VideoThumbnail extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
-              Positioned.fill(
-                child: CustomVideoPlayer(videoUrl: videoUrl),
-              ),
+              Positioned.fill(child: CustomVideoPlayer(videoUrl: videoUrl)),
             ],
           ),
         );
@@ -58,9 +56,9 @@ class VideoThumbnail extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: thumbnailUrl,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: const LoadingCard(),
+                placeholder: (context, url) => const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: LoadingCard(),
                 ),
                 errorWidget: (context, url, error) => const ErrorCard(),
               ),
@@ -69,7 +67,7 @@ class VideoThumbnail extends StatelessWidget {
               width: 50,
               height: 50,
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
                     AppColors.primary,
@@ -85,7 +83,7 @@ class VideoThumbnail extends StatelessWidget {
                 child: SvgPicture.asset(
                   'assets/images/play.svg',
                   width: 50,
-                  colorFilter: ColorFilter.mode(
+                  colorFilter: const ColorFilter.mode(
                     AppColors.background,
                     BlendMode.srcIn,
                   ),

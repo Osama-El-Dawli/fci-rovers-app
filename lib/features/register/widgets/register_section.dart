@@ -20,11 +20,11 @@ class RegisterSection extends StatelessWidget {
   }
 
   Widget _buildMobileLayout() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
       child: CustomCard(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -58,7 +58,7 @@ class RegisterSection extends StatelessWidget {
   Widget _buildDesktopLayout(bool isTablet) {
     return Row(
       children: [
-        Spacer(flex: 1),
+        const Spacer(flex: 1),
         Expanded(
           flex: isTablet ? 3 : 2, // Wider on tablet for better use of space
           child: CustomCard(
@@ -76,7 +76,7 @@ class RegisterSection extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text(
                     'املأ البيانات التالية للتسجيل في الحركة الكشفية',
                     style: TextStyle(
@@ -85,8 +85,8 @@ class RegisterSection extends StatelessWidget {
                       color: AppColors.mutedForeground,
                     ),
                   ),
-                  SizedBox(height: 32),
-                  RegisterForm(),
+                  const SizedBox(height: 32),
+                  const RegisterForm(),
                 ],
               ),
             ),

@@ -42,7 +42,10 @@ class CustomDivider extends StatelessWidget {
         SvgPicture.asset(
           'assets/images/knot.svg',
           height: iconSize,
-          colorFilter: ColorFilter.mode(AppColors.primaryGlow, BlendMode.srcIn),
+          colorFilter: const ColorFilter.mode(
+            AppColors.primaryGlow,
+            BlendMode.srcIn,
+          ),
         ),
         const SizedBox(width: 8),
         Container(

@@ -109,7 +109,8 @@ class QuoteBox extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => RegisterViewLayout(),
+                                    builder: (context) =>
+                                        const RegisterViewLayout(),
                                   ),
                                 );
                               },

@@ -33,11 +33,11 @@ class RegisterHeader extends StatelessWidget {
             TextButton(
               onPressed: () => Navigator.pop(context),
               style: TextButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 minimumSize: Size.zero,
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               ),
-              child: Row(
+              child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
@@ -58,11 +58,11 @@ class RegisterHeader extends StatelessWidget {
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
-        SizedBox(height: 8),
-        Center(
+        const SizedBox(height: 8),
+        const Center(
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Row(
@@ -100,8 +100,12 @@ class RegisterHeader extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.arrow_back_ios, color: AppColors.background, size: 16),
-              SizedBox(width: 8),
+              const Icon(
+                Icons.arrow_back_ios,
+                color: AppColors.background,
+                size: 16,
+              ),
+              const SizedBox(width: 8),
               Text(
                 'العودة للرئيسية',
                 style: TextStyle(
