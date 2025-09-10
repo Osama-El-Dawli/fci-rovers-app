@@ -41,7 +41,10 @@ class VideosSection extends StatelessWidget {
             } else {
               return CustomSlider(
                 items: [1, 2, 3],
-                itemBuilder: (context, item, index) => LoadingCard(),
+                itemBuilder: (context, item, index) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: LoadingCard(),
+                ),
               );
             }
             return SizedBox();

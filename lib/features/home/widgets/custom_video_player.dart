@@ -29,6 +29,10 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
       _,
     ) {
       _chewieController = ChewieController(
+        customControls: Directionality(
+          textDirection: TextDirection.ltr,
+          child: MaterialControls(),
+        ),
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
         looping: false,
@@ -67,10 +71,7 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
           if (snapshot.connectionState == ConnectionState.done) {
             return AspectRatio(
               aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: Directionality(
-                textDirection: TextDirection.ltr,
-                child: Chewie(controller: _chewieController),
-              ),
+              child: Chewie(controller: _chewieController),
             );
           } else {
             return Center(

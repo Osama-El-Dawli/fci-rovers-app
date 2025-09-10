@@ -41,7 +41,9 @@ class VideoThumbnail extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
-              Positioned.fill(child: CustomVideoPlayer(videoUrl: videoUrl)),
+              Positioned.fill(
+                child: CustomVideoPlayer(videoUrl: videoUrl),
+              ),
             ],
           ),
         );
@@ -56,7 +58,10 @@ class VideoThumbnail extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: thumbnailUrl,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => const LoadingCard(),
+                placeholder: (context, url) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: const LoadingCard(),
+                ),
                 errorWidget: (context, url, error) => const ErrorCard(),
               ),
             ),

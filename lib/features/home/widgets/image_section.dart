@@ -40,7 +40,12 @@ class ImagesSection extends StatelessWidget {
                           child: CachedNetworkImage(
                             imageUrl: item,
                             fit: BoxFit.contain,
-                            placeholder: (context, url) => LoadingCard(),
+                            placeholder: (context, url) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 36.0,
+                              ),
+                              child: LoadingCard(),
+                            ),
                             errorWidget: (context, url, error) => ErrorCard(),
                           ),
                         ),
@@ -58,7 +63,10 @@ class ImagesSection extends StatelessWidget {
             } else {
               return CustomSlider(
                 items: [1, 2, 3],
-                itemBuilder: (context, item, index) => LoadingCard(),
+                itemBuilder: (context, item, index) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: LoadingCard(),
+                ),
               );
             }
           },
