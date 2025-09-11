@@ -1,6 +1,6 @@
 {
-    "name": "fci_rovers_app",
-    "short_name": "fci_rovers_app",
+    "name": "FCI Rovers",
+    "short_name": "FCI Rovers",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
