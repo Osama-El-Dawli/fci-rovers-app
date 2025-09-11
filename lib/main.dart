@@ -22,7 +22,7 @@ class FciRoversApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FCI Rovers App',
+      title: 'FCI Rovers',
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark().copyWith(
         textTheme: ThemeData.dark().textTheme.apply(fontFamily: 'Cairo'),
