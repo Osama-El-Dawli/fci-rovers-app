@@ -54345,7 +54345,7 @@ p=t.p
 return A.fz(A.b([B.cC,A.n2(new A.pa(new A.bZ(new A.aG(r,r,r,r),A.h3(A.b([q,B.oo,A.dy(u.E,o,o,o,A.e8(o,o,B.cp,o,o,o,o,o,o,o,o,m?16:18,o,o,o,o,o,!0,o,o,o,o,o,o,o,o),o,o),B.kM,B.JE],p),B.bq,B.W,B.aa,B.ap),o),o),s),B.cC],p),B.S,B.W,B.aa)}}}
 A.TU.prototype={
 L(a){var s=null,r=A.qB(B.ay,s,s).M2(A.qB(B.ay,s,s).ok.av_("Cairo"))
-return new A.FA(B.UY,new A.akF(),"FCI Rovers App",A.qB(s,A.aYg(B.as,s,s,B.aP),s),r,B.zA,B.a56,B.a_u,!1,s)}}
+return new A.FA(B.UY,new A.akF(),"FCI Rovers",A.qB(s,A.aYg(B.as,s,s,B.aP),s),r,B.zA,B.a56,B.a_u,!1,s)}}
 A.akF.prototype={
 $2(a,b){b.toString
 return A.aTi(b,B.aI)},
