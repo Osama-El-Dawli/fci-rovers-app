@@ -8,15 +8,26 @@ class RegisterMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.background,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            RegisterHeader(),
-            SizedBox(height: 16),
-            Center(child: RegisterSection()),
-          ],
+      body: PopScope(
+        canPop: true,
+        onPopInvokedWithResult: (didPop, result) {
+          if (didPop) return;
+          if (FocusScope.of(context).hasFocus) {
+            FocusScope.of(context).unfocus();
+          } else {
+            Navigator.of(context).maybePop();
+          }
+        },
+        child: const SingleChildScrollView(
+          child: Column(
+            children: [
+              RegisterHeader(),
+              SizedBox(height: 16),
+              Center(child: RegisterSection()),
+            ],
+          ),
         ),
       ),
     );

@@ -41,9 +41,7 @@ class JoinCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 24),
-                      const CustomTitleWidget(
-                        title: 'انضم إلى عشيرة جوالة حاسبات ومعلومات',
-                      ),
+                      const CustomTitleWidget(title: 'انضم إلى عشيرة الجوالة'),
                       const SizedBox(height: 24),
                       Padding(
                         padding: const EdgeInsetsGeometry.symmetric(
