@@ -29,6 +29,7 @@ class VideoThumbnail extends StatelessWidget {
           context: context,
           builder: (context) => Stack(
             children: [
+              Positioned.fill(child: CustomVideoPlayer(videoUrl: videoUrl)),
               Positioned(
                 top: 20,
                 right: 20,
@@ -41,7 +42,6 @@ class VideoThumbnail extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
-              Positioned.fill(child: CustomVideoPlayer(videoUrl: videoUrl)),
             ],
           ),
         );

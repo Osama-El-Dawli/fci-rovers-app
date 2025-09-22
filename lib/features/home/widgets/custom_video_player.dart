@@ -16,7 +16,7 @@ class CustomVideoPlayer extends StatefulWidget {
 class CustomVideoPlayerState extends State<CustomVideoPlayer> {
   late VideoPlayerController _videoPlayerController;
   late Future<void> _initializeVideoPlayerFuture;
-  late ChewieController _chewieController;
+  ChewieController? _chewieController;
 
   @override
   void initState() {
@@ -29,14 +29,10 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
       _,
     ) {
       _chewieController = ChewieController(
-        customControls: const Directionality(
-          textDirection: TextDirection.ltr,
-          child: MaterialControls(),
-        ),
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
         looping: false,
-        aspectRatio: 16 / 9,
+        aspectRatio: _videoPlayerController.value.aspectRatio,
         allowFullScreen: true,
         allowMuting: true,
         showControlsOnInitialize: false,
@@ -58,33 +54,35 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
   @override
   void dispose() {
     _videoPlayerController.dispose();
-    _chewieController.dispose();
+    _chewieController?.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FutureBuilder(
-        future: _initializeVideoPlayerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return AspectRatio(
-              aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: Chewie(controller: _chewieController),
-            );
-          } else {
-            return Center(
-              child: RepaintBoundary(
-                child: LottieBuilder.asset(
-                  'assets/images/fire_loading.json',
-                  width: 200,
-                ),
+    return FutureBuilder(
+      future: _initializeVideoPlayerFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done &&
+            _chewieController != null) {
+          final aspectRatio = _videoPlayerController.value.aspectRatio;
+          final adjustedAspectRatio = aspectRatio < 1 ? 9 / 16 : aspectRatio;
+
+          return AspectRatio(
+            aspectRatio: adjustedAspectRatio,
+            child: Chewie(controller: _chewieController!),
+          );
+        } else {
+          return Center(
+            child: RepaintBoundary(
+              child: LottieBuilder.asset(
+                'assets/images/fire_loading.json',
+                width: 200,
               ),
-            );
-          }
-        },
-      ),
+            ),
+          );
+        }
+      },
     );
   }
 }
