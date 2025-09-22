@@ -19,7 +19,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterSuccess());
     } on PostgrestException catch (e) {
       if (e.code == '23505') {
-        emit(RegisterFailure(errorMessage: 'المستخدم مسجل بالفعل'));
+        emit(RegisterFailure(errorMessage: 'رقم الهاتف مسجل بالفعل'));
       } else {
         emit(RegisterFailure(errorMessage: e.message));
       }

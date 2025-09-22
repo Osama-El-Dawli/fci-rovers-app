@@ -21,7 +21,6 @@ class RegisterForm extends StatefulWidget {
 class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  final TextEditingController idController = TextEditingController();
   final TextEditingController hobbiesController = TextEditingController();
   final TextEditingController gradeController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -33,7 +32,6 @@ class _RegisterFormState extends State<RegisterForm> {
   void dispose() {
     nameController.dispose();
     phoneController.dispose();
-    idController.dispose();
     gradeController.dispose();
     hobbiesController.dispose();
     super.dispose();
@@ -42,7 +40,6 @@ class _RegisterFormState extends State<RegisterForm> {
   void _clearForm() {
     nameController.clear();
     phoneController.clear();
-    idController.clear();
     gradeController.clear();
     setState(() {
       selectedSex = null;
@@ -77,7 +74,7 @@ class _RegisterFormState extends State<RegisterForm> {
             builder: (_) => Center(
               child: CustomDialog(
                 title: 'تم التسجيل بنجاح',
-                message: 'شكراً لتسجيلك في فريق FCI Rovers!',
+                message: 'مستنينك تنورنا 😊',
                 onButtonPressed: () {
                   Navigator.of(context, rootNavigator: true).pop();
                   _clearForm();
@@ -166,23 +163,6 @@ class _RegisterFormState extends State<RegisterForm> {
               },
             ),
             const SizedBox(height: 20),
-
-            const FieldTitle('الرقم القومي *'),
-            const SizedBox(height: 8),
-            CustomTextFormField(
-              keyboardType: TextInputType.number,
-              hintText: 'أدخل رقمك القومي',
-              controller: idController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'يجب ادخال رقمك القومي';
-                } else if (value.length != 14) {
-                  return 'يجب ان يكون الرقم القومي مكون من 14 رقم';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 20),
             const FieldTitle('المواهب - الهوايات'),
             const SizedBox(height: 8),
             CustomTextFormField(
@@ -265,7 +245,6 @@ class _RegisterFormState extends State<RegisterForm> {
                       hobbies: hobbiesController.text.trim(),
                       name: nameController.text.trim(),
                       phone: phoneController.text.trim(),
-                      id: num.parse(idController.text.trim()),
                       grade: int.parse(gradeController.text.trim()),
                       sex: selectedSex!,
                     );

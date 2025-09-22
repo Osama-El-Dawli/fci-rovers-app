@@ -41,15 +41,18 @@ class JoinCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 24),
-                      const CustomTitleWidget(title: 'انضم إلى عائلة الكشافة'),
+                      const CustomTitleWidget(
+                        title: 'انضم إلى عشيرة جوالة حاسبات ومعلومات',
+                      ),
                       const SizedBox(height: 24),
                       Padding(
                         padding: const EdgeInsetsGeometry.symmetric(
                           horizontal: 32,
                         ),
                         child: Text(
-                          'كن جزءاً من حركة عالمية تهدف إلى بناء الشخصية وخدمة المجتمع. سجل الآن واكتشف عالماً مليئاً بالمغامرات والصداقات الحقيقية',
+                          'علشان تكون جزء من كياننا وتعيش جو تاني وتكون جزء من نشاط مختلف وبتجربة فريدة من نوعها انضم لينا واستكشف حياة مختلفة ومغامرة جديدة في عشيرة الجوالة',
                           style: TextStyle(
+                            height: 1.7,
                             color: AppColors.secondary,
                             fontSize: textFontSize,
                           ),

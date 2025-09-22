@@ -29,9 +29,9 @@ class RegisterSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'انضم إلى عائلة الكشافة',
+                'انضم إلينا',
                 style: TextStyle(
-                  fontSize: 24, // Smaller for mobile
+                  fontSize: 24,
                   color: AppColors.primary,
 
                   fontWeight: FontWeight.w700,
@@ -39,14 +39,14 @@ class RegisterSection extends StatelessWidget {
               ),
               SizedBox(height: 12),
               Text(
-                'املأ البيانات التالية للتسجيل في الحركة الكشفية',
+                'املأ البيانات التالية للتسجيل في عشيرة الجوالة',
                 style: TextStyle(
-                  fontSize: 16, // Smaller for mobile
+                  fontSize: 16,
 
                   color: AppColors.mutedForeground,
                 ),
               ),
-              SizedBox(height: 24), // Reduced spacing
+              SizedBox(height: 24),
               RegisterForm(),
             ],
           ),
@@ -60,7 +60,7 @@ class RegisterSection extends StatelessWidget {
       children: [
         const Spacer(flex: 1),
         Expanded(
-          flex: isTablet ? 3 : 2, // Wider on tablet for better use of space
+          flex: isTablet ? 3 : 2,
           child: CustomCard(
             child: Padding(
               padding: EdgeInsets.all(isTablet ? 20 : 24),
@@ -68,7 +68,7 @@ class RegisterSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'انضم إلى عائلة الكشافة',
+                    'انضم إلينا',
                     style: TextStyle(
                       fontSize: isTablet ? 26 : 30,
                       color: AppColors.primary,
@@ -78,7 +78,7 @@ class RegisterSection extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'املأ البيانات التالية للتسجيل في الحركة الكشفية',
+                    'املأ البيانات التالية للتسجيل في عشيرة الجوالة',
                     style: TextStyle(
                       fontSize: isTablet ? 16 : 18,
 

@@ -92,10 +92,10 @@ class QuoteBox extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'كن مستعدا في كل وقت وحين',
+                              'خطوة النهارده = ذكريات العمر كله ✨\nخليك جزء من الحكاية',
                               textAlign: isMobile
                                   ? TextAlign.center
-                                  : TextAlign.left,
+                                  : TextAlign.center,
                               style: TextStyle(
                                 color: AppColors.foreground,
 
