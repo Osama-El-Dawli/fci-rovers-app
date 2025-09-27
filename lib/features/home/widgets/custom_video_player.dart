@@ -29,6 +29,10 @@ class CustomVideoPlayerState extends State<CustomVideoPlayer> {
       _,
     ) {
       _chewieController = ChewieController(
+        customControls: const Directionality(
+          textDirection: TextDirection.ltr,
+          child: MaterialControls(),
+        ),
         videoPlayerController: _videoPlayerController,
         autoPlay: true,
         looping: false,
