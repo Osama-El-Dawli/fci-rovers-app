@@ -62,13 +62,26 @@ class RegisterHeader extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-        const Center(
+        Center(
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                Container(
+                  padding: const EdgeInsets.all(2),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.accentForeground,
+                  ),
+                  child: const CustomLogo(
+                    radius: 20,
+                    borderWidth: 2,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                const Text(
                   'تسجيل عضو جديد',
                   style: TextStyle(
                     color: AppColors.background,
@@ -77,8 +90,6 @@ class RegisterHeader extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(width: 12),
-                CustomLogo(radius: 20, borderWidth: 2),
               ],
             ),
           ),
@@ -133,7 +144,18 @@ class RegisterHeader extends StatelessWidget {
                 ),
               ),
               SizedBox(width: isTablet ? 14 : 16),
-              CustomLogo(radius: isTablet ? 22 : 24, borderWidth: 2),
+              Container(
+                padding: const EdgeInsets.all(2),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.accentForeground,
+                ),
+                child: CustomLogo(
+                  radius: isTablet ? 22 : 24,
+                  borderWidth: 2,
+                  color: Colors.black,
+                ),
+              ),
             ],
           ),
         ),
