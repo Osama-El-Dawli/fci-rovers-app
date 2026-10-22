@@ -1,5 +1,5 @@
-import 'package:fci_rovers_app/core/config/app_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fci_rovers_app/core/utils/app_colors.dart';
 import 'package:fci_rovers_app/features/home/views/home_view_layout.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -7,10 +7,11 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
 
   await Supabase.initialize(
-    url: AppConfig.supabaseUrl,
-    anonKey: AppConfig.supabaseKey,
+    url: dotenv.get('SUPABASE_URL'),
+    anonKey: dotenv.get('SUPABASE_ANON_KEY'),
   );
 
   runApp(const FciRoversApp());
